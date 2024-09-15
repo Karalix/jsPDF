@@ -22,19 +22,19 @@ import { globalObject } from "../libs/globalObject.js";
 
   function loadHtml2Canvas() {
     return (function() {
-      if (globalObject["html2canvas"]) {
-        return Promise.resolve(globalObject["html2canvas"]);
+      if (globalObject["html2canvas-pro"]) {
+        return Promise.resolve(globalObject["html2canvas-pro"]);
       }
 
       // @if MODULE_FORMAT='es'
-      return import("html2canvas");
+      return import("html2canvas-pro");
       // @endif
 
       // @if MODULE_FORMAT!='es'
       if (typeof exports === "object" && typeof module !== "undefined") {
         return new Promise(function(resolve, reject) {
           try {
-            resolve(require("html2canvas"));
+            resolve(require("html2canvas-pro"));
           } catch (e) {
             reject(e);
           }
@@ -43,7 +43,7 @@ import { globalObject } from "../libs/globalObject.js";
       if (typeof define === "function" && define.amd) {
         return new Promise(function(resolve, reject) {
           try {
-            require(["html2canvas"], resolve);
+            require(["html2canvas-pro"], resolve);
           } catch (e) {
             reject(e);
           }
